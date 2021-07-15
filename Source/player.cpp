@@ -460,7 +460,9 @@ void Player::ComboAttack()
 	switch (ComboNum)
 	{
 	case ATTACK::NORMAL_1:
-		effectManager->CreateEffect(MV1GetFramePosition(hModel,Collision[ATTACK::NORMAL_1].FrameIndex), Rotation, 1);
+		if (animation->GetFrameTime() == 15.0f) {
+			effectManager->CreateEffect(MV1GetFramePosition(hModel,Collision[ATTACK::NORMAL_1].FrameIndex), Rotation, 1);
+		}
 		if (CheckHitKey(KEY_INPUT_RETURN) != 0)
 		{
 			if (animation->GetFrameTime() > 15.0f)
